@@ -35,7 +35,6 @@ import { buildsTemplate } from '@/utils/schemas.js'
 
 export default {
   //   name:"JsonEditor",
-  components: {},
   created () {
     this.$root.$on('template-selected', (event) => { this.templateSelected(event) })
   },

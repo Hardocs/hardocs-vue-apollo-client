@@ -23,6 +23,7 @@
     "@ckeditor/ckeditor5-vue": "^1.0.3",
     "@formschema/native": "^2.0.0-alpha.2",
     "@hardocs-project/habitat-client": "^0.5.17",
+    "@hardocs-project/tangram-json-editor": "^0.8.6",
     "@hardocs-project/vue-json-edit": "^0.9.0",
     "@vue/test-utils": "^1.1.1",
     "add": "^2.0.6",
@@ -41,6 +42,7 @@
     "vue": "^2.6.12",
     "vue-codemirror": "^4.0.6",
     "vue-feather-icons": "^5.1.0",
+    "vue-json-edit": "^1.4.3",
     "vue-router": "^3.2.0",
     "vue-shortkey": "^3.1.7",
     "vuex": "^3.4.0"

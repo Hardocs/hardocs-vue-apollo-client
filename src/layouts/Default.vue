@@ -10,7 +10,7 @@
         <DocsContents></DocsContents>
       </aside>
       <div class="w-1/5"></div>
-      <div class="w-3/5 pl-16">
+      <div class="w-4/5 pl-16">
         <slot />
       </div>
       <div
@@ -71,6 +71,6 @@ export default {
 }
 .active {
 /* *todo* really this should be draggable, full templs will show, but bigger an improvement */
-  @apply w-1/2;
+  @apply w-4/5;
 }
 </style>

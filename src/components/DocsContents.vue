@@ -24,8 +24,8 @@
         <li
           class="py-2 docs-contents focus:font-bold border-b border-gray-25 flex justify-between align-center content-center hover:bg-gray-15"
         >
-          <a 
-            style="cursor:pointer;" 
+          <a
+            style="cursor:pointer;"
             class="w-full"
             @click="setCurrentDoc(doc.id)"
             :class="{ 'font-bold' : doc.id == currentDocId}"
@@ -67,7 +67,7 @@ export default {
         docId: 'currentDocId',
         isAppPath: 'guidesIsActive'
     }),
-    
+
     currentDocId:{
       get(){
         return this.docId
@@ -143,8 +143,8 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .docs-contents:focus{
   font-weight: 700;
-}  
+}
 </style>

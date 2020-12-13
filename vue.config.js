@@ -16,6 +16,7 @@ module.exports = {
       })
     ]
   },
+  chainWebpack: config => config.resolve.set('symlinks', false),
   pluginOptions: {
     electronBuilder: {
       // preload: 'src/server.js',
@@ -38,6 +39,6 @@ module.exports = {
         ]
       }
     },
-    
+
   }
 };

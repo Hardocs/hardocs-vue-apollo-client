@@ -983,10 +983,10 @@
     pouchdb-upsert "^2.2.0"
     uuid "^8.3.1"
 
-"@hardocs-project/tangram-json-editor@^0.8.12":
-  version "0.8.22"
-  resolved "https://registry.yarnpkg.com/@hardocs-project/tangram-json-editor/-/tangram-json-editor-0.8.22.tgz#cffbb9f720788c65b748e4f3d51c078c7e764641"
-  integrity sha512-3uVU3GxWSxsWzV2IRVkhSyCe6zlIR40kOKbithciGk2Bzpapb0N9AGyPzPyFER6g36pXDE/EOiaeTQmcOz5c8g==
+"@hardocs-project/tangram-json-editor@^0.8.28":
+  version "0.8.28"
+  resolved "https://registry.yarnpkg.com/@hardocs-project/tangram-json-editor/-/tangram-json-editor-0.8.28.tgz#5aba03e282095a1c9fdde4b338366bae461419e4"
+  integrity sha512-xvlhGlyYDt54rohJ09bAm1/KdJoAhv/TimH7rZedD86Orz+iZa0bu2h75QbGiOc65Sv2k1Gqjttw/qtxoPCCaQ==
   dependencies:
     ace-builds "^1.4.2"
     ajv "^5.5.2"

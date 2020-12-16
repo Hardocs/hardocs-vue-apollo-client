@@ -13,37 +13,36 @@ export default {
     return {
       dummy: {
         title: 'Name',
-        description: 'akasdasd',
         path: 'docs/',
         content: 'this is a content',
-        fileName: 'hello.md'
+        fileName: 'hello.html'
       }
     };
   },
   computed: {
     saved() {
-      return this.$store.state.docs.currentDoc.saved
+      return this.$store.state.docs.currentDoc.saved;
     },
-    guidesIsActive(){
-      return this.$store.getters.guidesIsActive
+    guidesIsActive() {
+      return this.$store.getters.guidesIsActive;
     }
   },
   methods: {
     saveDocFile() {
-      if(this.guidesIsActive){
-        if(process.env.NODE_ENV === 'production') 
-          alert('Save is disabled for GUIDES documents')
+      if (this.guidesIsActive) {
+        if (process.env.NODE_ENV === 'production')
+          alert('Save is disabled for GUIDES documents');
         else {
-            this.$store.dispatch('saveDocFile')
-            this.$store.commit('SET_TO_SAVED', this.$store.state.docs.currentDoc.id)
-          }  
-      }
-      else {
+          this.$store.dispatch('saveDocFile');
+          this.$store.commit(
+            'SET_TO_SAVED',
+            this.$store.state.docs.currentDoc.id
+          );
+        }
+      } else {
         this.$store.dispatch('saveDocFile')
-        this.$store.commit('SET_TO_SAVED', this.$store.state.docs.currentDoc.id)
       }
-
-    }    
+    }
   }
-}
+};
 </script>

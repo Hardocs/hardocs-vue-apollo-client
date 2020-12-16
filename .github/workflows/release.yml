@@ -1,0 +1,60 @@
+name: Build/release
+
+on: 
+  push:
+    branches:
+      - master
+      - 'releases/**'
+
+  # release:
+  #   types: [created]
+
+jobs:
+  release:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        package_manager: [yarn]
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Install dependencies
+        run: yarn      
+        
+      - name: Install Snapcraft
+        uses: samuelmeuli/action-snapcraft@v1
+        if: startsWith(matrix.os, 'ubuntu')
+        with:
+          snapcraft_token: ${{ secrets.SNAPCRAFT_TOKEN }}
+
+
+      - name: Build/release Electron app
+        uses: samuelmeuli/action-electron-builder@v1
+        with:
+          # GitHub token, automatically provided to the action
+          # (No need to define this secret in the repo settings)
+          # github_token: ${{ secrets.DIVINE_GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+          # If the commit is tagged with a version (e.g. "v1.0.0"),
+          # release the app after building
+          release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+          use_vue_cli: true
+          build_script_name: yarn electron:build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # - run: yarn --version;
+      # - run: npm --version;
+      # - run: node --version;
+      # - run: ls -al;
+      # - run: ls -al ./dist_electron;

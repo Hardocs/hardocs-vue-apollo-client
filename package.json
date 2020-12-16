@@ -1,13 +1,13 @@
 {
-  "name": "hardocs-vue-apollo-client",
-  "version": "0.1.0",
+  "name": "hardocs-desktop",
+  "version": "0.1.1-beta",
   "private": true,
   "description": "A desktop app to generate project documentations",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "electron:build": "vue-cli-service electron:build",
+    "electron:build": "vue-cli-service electron:build -p 'onTagOrDraft'",
     "build:linux": "yarn electron:build --linux deb",
     "electron:serve": "vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
@@ -28,17 +28,16 @@
     "@vue/test-utils": "^1.1.1",
     "add": "^2.0.6",
     "ajv": "^6.12.6",
-    "ckeditor5": "https://github.com/Hardocs/editor.git",
     "core-js": "^3.6.5",
     "electron": "^9.0.0",
-    "hardocs-fs": "^0.0.15-beta",
+    "electron-updater": "^4.3.5",
+    "hardocs-ck-editor": "git@github.com:Hardocs/editor.git",
+    "hardocs-fs": "^0.0.21-beta",
     "json-to-pretty-yaml": "^1.2.2",
     "pouchdb": "^7.2.2",
     "pouchdb-find": "^7.2.2",
     "pouchdb-upsert": "^2.2.0",
     "tailwindcss": "^1.7.6",
-    "tiptap": "^1.29.6",
-    "tiptap-extensions": "^1.32.5",
     "vue": "^2.6.12",
     "vue-codemirror": "^4.0.6",
     "vue-feather-icons": "^5.1.0",
@@ -68,7 +67,9 @@
     "vue-template-compiler": "^2.6.11"
   },
   "author": {
-    "name": "Divine & Jose",
+    "name": "Divine, Jose, Clive",
     "email": "divinehycenth8@gmail.com"
-  }
+  },
+  "repository": "https://github.com/DNature/desktop-app",
+  "homepage": "https://github.com/DNature/desktop-app"
 }

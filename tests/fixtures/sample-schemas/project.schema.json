@@ -5,19 +5,16 @@
   "title": "Project",
   "description": "",
   "default": {},
-  "examples": [{
-    "name": "A project ",
-    "shortTitle": "This is a project title",
-    "description": "Describe project",
-    "docsDir": "docs",
-    "entryFile": "Index.md"
-  }],
-  "required": [
-    "name",
-    "shortTitle",
-    "docsDir",
-    "entryFile"
+  "examples": [
+    {
+      "name": "A project ",
+      "shortTitle": "This is a project title",
+      "description": "Describe project",
+      "docsDir": "docs",
+      "entryFile": "Index.html"
+    }
   ],
+  "required": ["name", "shortTitle", "docsDir", "entryFile"],
   "properties": {
     "path": {
       "$id": "#/properties/path",
@@ -25,9 +22,7 @@
       "title": "Project path",
       "description": "Provide a root project path ",
       "default": "",
-      "examples": [
-        "A project "
-      ]
+      "examples": ["A project "]
     },
     "name": {
       "$id": "#/properties/name",
@@ -35,9 +30,7 @@
       "title": "Project Name",
       "description": "",
       "default": "",
-      "examples": [
-        "A project "
-      ]
+      "examples": ["A project "]
     },
     "shortTitle": {
       "$id": "#/properties/shortTitle",
@@ -45,9 +38,7 @@
       "title": "Short Title",
       "description": "",
       "default": "",
-      "examples": [
-        "This is a project title"
-      ]
+      "examples": ["This is a project title"]
     },
     "docsDir": {
       "$id": "#/properties/docsDir",
@@ -55,9 +46,7 @@
       "title": "Docs directory",
       "description": "",
       "default": "",
-      "examples": [
-        "docs"
-      ]
+      "examples": ["docs"]
     },
     "entryFile": {
       "$id": "#/properties/entryFile",
@@ -65,12 +54,10 @@
       "title": "Entry file",
       "description": "Provide a reference file inside your docs root folder",
       "default": "",
-      "examples": [
-        "Index.md"
-      ]
+      "examples": ["Index.html"]
     },
     "vendors": {
-      "testing__this": { "$ref": "vendor.schema.json"}
+      "testing__this": { "$ref": "vendor.schema.json" }
     }
   },
   "additionalProperties": true

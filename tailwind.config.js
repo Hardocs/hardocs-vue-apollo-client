@@ -6,9 +6,10 @@
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 module.exports = {
-  future: {  // their request from Tailwind as they transition
+  future: {
+    // their request from Tailwind as they transition
     removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
+    purgeLayersByDefault: true
   },
   theme: {
     screens: {
@@ -80,9 +81,6 @@ module.exports = {
       }
     }
   },
-  future: {
-    removeDeprecatedGapUtilities: true
-  },
   variants: {},
   plugins: [],
   purge: {
@@ -95,7 +93,8 @@ module.exports = {
       'src/layouts/**/*.vue',
       'src/views/**/*.vue',
       'src/plugins/**/*.js',
-      '!src/components/DocsContents.vue'
+      '!src/components/DocsContents.vue',
+      '!src/components/DocEditor.vue'
     ]
   }
 };

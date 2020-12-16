@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import ClassicEditor from 'ckeditor5';
+import ClassicEditor from 'hardocs-ck-editor';
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic/build/ckeditor';
 
 // import CKEditor from '@ckeditor/ckeditor5-vue/dist/ckeditor';
@@ -87,9 +87,9 @@ export default {
       json: 'edit content',
       html: this.content,
       editorData: this.content,
-      editorConfig:{
-        toolbar: {      
-          viewportTopOffset : 55,
+      editorConfig: {
+        toolbar: {
+          viewportTopOffset: 55
         }
       }
     };
@@ -101,12 +101,15 @@ export default {
     onChange: function(data) {
       this.$store.dispatch('setSaved', false);
       let regex = /<[^>].+?>(.*?)<\/.+?>/m;
+      // let regex = /(# |## |### |#### )[\w]*[\s\S]*?\n/gis;
+
       if (data.length && data.match(regex)) {
-        let title = data.match(regex)[0] 
+        let title = data.match(regex)[0];
         regex = /(<([^>]+)>)/gi;
+        // regex = /(# |## |### |#### )/gi;
         // Set conditional statement here
-        title = title.replace(regex, '').trim()
-        title = title.replace(/&nbsp;/g, '')
+        title = title.replace(regex, '').trim();
+        title = title.replace(/&nbsp;/g, '');
 
         this.$store.commit('UPDATE_DOC_CONTENT', {
           id: this.id,

@@ -47,25 +47,42 @@ h2 {
 }
 
 .primary-button {
-    @apply py-1 px-4 bg-gray-15 border rounded-sm border-gray-75;
-    cursor: pointer;
+  @apply py-1 px-4 bg-gray-15 border rounded-sm border-gray-75;
+  cursor: pointer;
 }
 
-.cell{
-   @apply border-solid border border-gray-25 rounded-md p-2
+.cell {
+  @apply border-solid border border-gray-25 rounded-md p-2;
 }
-
 
 /* Metadata json form tree editor */
-.f-input{
-    display:flex !important;
+.f-input {
+  display: flex !important;
 }
 
 .f-input > * {
-    margin-right: 0.3em;
-    background-color: white;
+  margin-right: 0.3em;
+  background-color: white;
 }
 
 .pure-form > form {
-    display:flex;
+  display: flex;
+}
+
+.ck > * ul {
+  list-style: disc;
+  margin-left: 2rem;
+}
+
+.ck > * ol {
+  list-style: decimal;
+  margin-left: 2rem;
+}
+
+.ck >  * a{
+  @apply text-blue-600;
+}
+
+.ck > * a:hover {
+  @apply underline cursor-pointer
 }

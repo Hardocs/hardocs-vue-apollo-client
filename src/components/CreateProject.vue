@@ -3,7 +3,12 @@
     <div style="cursor:pointer" class="float-right px-4" @click="cancel()">
       ❌
     </div>
-    <FormSchema class="create-project pb-6 create-project" ref="formSchema" v-model="model" @submit.prevent>
+    <FormSchema
+      class="create-project pb-6 create-project"
+      ref="formSchema"
+      v-model="model"
+      @submit.prevent
+    >
       <div class="buttons">
         <button type="button" class="primary-button" @click="onSubmit()">
           Create project
@@ -31,20 +36,20 @@ export default {
   },
   computed: {
     currentCwd() {
-      console.log('CreateProject:currentCwd: ' + this.$store.state.docs.cwd)
+      console.log('CreateProject:currentCwd: ' + this.$store.state.docs.cwd);
       return this.$store.state.docs.cwd;
     }
   },
   data: () => ({
     created: false,
-    schema:  Promise.resolve(require('@/schemas/project.schema.json')),
+    schema: Promise.resolve(require('@/schemas/project.schema.json')),
     model: {},
     modelExample: {
       path: 'D:\\my-projects\\COVID-19\\DESTROY',
       name: 'EK Evaluation kit',
       shortTitle: 'A kit to evaluate EK',
       docsDir: 'docs\\',
-      entryFile: 'index.md'
+      entryFile: 'index.html'
     }
   }),
   created() {
@@ -53,7 +58,7 @@ export default {
     });
     this.model.path = this.cwd;
     this.model.docsDir = 'docs';
-    this.model.entryFile = 'index.md';
+    this.model.entryFile = 'index.html';
   },
   methods: {
     onSubmit() {
@@ -81,8 +86,7 @@ export default {
   /* margin: auto; */
   display: flex;
 }
-.create-project 
-.form,
+.create-project .form,
 .model {
   padding: 20px;
   margin: 0 auto;

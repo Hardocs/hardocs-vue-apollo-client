@@ -8,6 +8,7 @@ import installExtension, {
   APOLLO_DEVELOPER_TOOLS
 } from 'electron-devtools-installer';
 import  path  from 'path'
+import autoUpdater from "electron-updater"
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -93,6 +94,10 @@ function createWindow() {
 
   win.on('closed', () => {
     win = null;
+  });
+
+  win.on("ready", () => {
+    autoUpdater.checkForUpdatesAndNotify();
   });
 
   return win

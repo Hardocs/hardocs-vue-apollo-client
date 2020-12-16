@@ -15,7 +15,7 @@
       </div>
       <div
         :class="{ active: metadata }"
-        class="fixed pt-10 top-0 right-0 h-screen flex hidden"
+        class="fixed pt-10 top-0 right-0 h-screen flex "
       >
         <div class="flex items-center transform -rotate-90 w-4">
           <div class="bg-primary-100 text-white">
@@ -31,7 +31,7 @@
           class="bg-gray-15 w-full pr-4 border-r border-solid border-gray-25 overflow-auto"
         >
           <div class="">
-            <!-- <MetadataPanel></MetadataPanel> -->
+            <MetadataPanel></MetadataPanel>
           </div>
         </div>
       </div>
@@ -41,14 +41,14 @@
 <script>
 import DocsContents from '@/components/DocsContents';
 import MenuBar from '@/components/MenuBar';
-// import MetadataPanel from '@/components/MetadataPanel';
+import MetadataPanel from '@/components/MetadataPanel';
 
 export default {
   name: 'LayoutDefault',
   components: {
     DocsContents,
     MenuBar,
-    // MetadataPanel
+    MetadataPanel
   },
   data: () => {
     return {

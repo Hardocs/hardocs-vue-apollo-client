@@ -1,0 +1,9 @@
+name: hardocs-desktop # you probably want to 'snapcraft register <name>'
+base: core18 # the base snap is the execution environment for this snap
+version: '0.1.2' # just for humans, typically '1.2+git' or '1.3.2'
+summary: Local first desktop app to edit metadata easily, create, store and organize documents locally and on the cloud. # 79 char long summary
+description: |
+  Local first desktop app to edit metadata easily, create, store and organize documents locally and on the cloud..
+
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: devmode # use 'strict' once you have the right plugs and slots

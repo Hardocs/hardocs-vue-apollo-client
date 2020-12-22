@@ -1,13 +1,14 @@
 {
   "name": "hardocs-desktop",
-  "version": "0.1.1-beta",
+  "version": "0.1.2",
   "private": true,
   "description": "A desktop app to generate project documentations",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "electron:build": "vue-cli-service electron:build -p 'onTagOrDraft'",
+    "electron:build": "vue-cli-service electron:build -p",
+    "e-build": "vue-cli-service electron:build",
     "build:linux": "yarn electron:build --linux deb",
     "electron:serve": "vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
@@ -69,6 +70,6 @@
     "name": "Divine, Jose, Clive",
     "email": "divinehycenth8@gmail.com"
   },
-  "repository": "https://github.com/DNature/desktop-app",
-  "homepage": "https://github.com/DNature/desktop-app"
+  "repository": "https://github.com/Hardocs/desktop-app",
+  "homepage": "https://github.com/Hardocs/desktop-app"
 }

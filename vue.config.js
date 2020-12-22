@@ -26,11 +26,14 @@ module.exports = {
         appId: 'hardocs.github.io',
         productName: 'Hardocs Desktop',
         // copyright: '',
-        publish: {
-          provider: 'github'
-        },
+        publish: [
+          {
+            provider: 'github'
+            // releaseType: ['draft', 'prerelease', 'release']
+          }
+        ],
         linux: {
-          target: 'snap',
+          target: ['zip', 'deb', 'snap'],
           category: 'System'
           // icon: 'src/assets/icons/icon.png'
         },

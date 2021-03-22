@@ -25,18 +25,19 @@ const createStore = () => {
 afterAll(async (done) => {
   const path = actions.cwd().data.cwd;
 
-  console.log({ platform: process.platform });
+  console.log({
+    platform: process.platform,
+    isWin: process.platform !== 'win32'
+  });
 
-  if (process.platform !== 'win32') {
-    // Do not remove directory on windows os
-    fs.existsSync(path) &&
-      fs.statSync(path) &&
-      fs.rmdir(path, { recursive: true }, (err) => {
-        if (err) console.error(err);
-        console.log('Done');
-        done();
-      });
-  }
+  // Do not remove directory on windows os
+  fs.existsSync(path) &&
+    fs.statSync(path) &&
+    fs.rmdir(path, { recursive: true }, (err) => {
+      if (err) console.error(err);
+      console.log('Done');
+      done();
+    });
 });
 
 let store, DEFAULT_STATE;

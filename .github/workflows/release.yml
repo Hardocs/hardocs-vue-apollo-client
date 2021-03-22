@@ -41,6 +41,7 @@ jobs:
       #     snapcraft_token: ${{ secrets.SNAPCRAFT_TOKEN }}
 
       - name: Run tests
+        if: startsWith(matrix.os, 'ubuntu')
         run: yarn test:unit
 
       - name: Build/release Electron app

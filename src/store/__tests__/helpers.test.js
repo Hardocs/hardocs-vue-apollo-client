@@ -4,6 +4,7 @@ import * as docs from '../docs';
 import { actions } from '../docs';
 import { resetState } from './resetState';
 import { cloneDeep } from 'lodash';
+import os from 'os';
 
 import fs from 'fs';
 
@@ -24,7 +25,7 @@ const createStore = () => {
 afterAll(async (done) => {
   const path = actions.cwd().data.cwd;
 
-  if (process.env.NODE_ENV === 'test') {
+  if (!os.platform().includes('win32')) {
     fs.existsSync(path) &&
       fs.statSync(path) &&
       fs.rmdir(path, { recursive: true }, (err) => {

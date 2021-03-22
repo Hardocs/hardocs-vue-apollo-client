@@ -24,17 +24,14 @@ const createStore = () => {
 afterAll(async (done) => {
   const path = actions.cwd().data.cwd;
 
-  if (
-    process.env.NODE_ENV === 'dev' &&
+  if (process.env.NODE_ENV === 'test') {
     fs.existsSync(path) &&
-    fs.statSync(path)
-  ) {
-    console.log(process.env.NODE_ENV);
-    fs.rmdir(path, { recursive: true }, (err) => {
-      if (err) console.error(err);
-      console.log('Done');
-      done();
-    });
+      fs.statSync(path) &&
+      fs.rmdir(path, { recursive: true }, (err) => {
+        if (err) console.error(err);
+        console.log('Done');
+        done();
+      });
   }
 });
 

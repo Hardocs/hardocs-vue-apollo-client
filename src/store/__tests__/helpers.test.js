@@ -26,15 +26,14 @@ afterAll(async (done) => {
     .cwd()
     .data.cwd.replace(/\\test-project\\test-project$/, ''); // Replacing this pattern `\\test-project\\test-project` for handling current windows build issues
 
-  console.log({ path });
-
-  fs.existsSync(path) &&
-    fs.statSync(path) &&
+  if (fs.existsSync(path) && fs.statSync(path)) {
+    console.log({ path });
     fs.rmdir(path, { recursive: true }, (err) => {
       if (err) console.error(err);
       console.log('Done');
       done();
     });
+  }
 });
 
 let store, DEFAULT_STATE;

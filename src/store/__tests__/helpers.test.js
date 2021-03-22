@@ -24,7 +24,9 @@ const createStore = () => {
 afterAll(async (done) => {
   const path = actions
     .cwd()
-    .data.cwd.replace(/\\\\test-project\\\\test-project$/, ''); // Replacing this pattern `\\test-project\\test-project` for handling current windows build issues
+    .data.cwd.replace(/\\test-project\\test-project$/, ''); // Replacing this pattern `\\test-project\\test-project` for handling current windows build issues
+
+  console.log({ path });
 
   fs.existsSync(path) &&
     fs.statSync(path) &&

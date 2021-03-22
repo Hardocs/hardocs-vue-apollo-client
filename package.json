@@ -1,6 +1,6 @@
 {
   "name": "hardocs-desktop",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "private": true,
   "description": "A desktop app to generate project documentations",
   "author": {

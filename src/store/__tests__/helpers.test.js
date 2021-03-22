@@ -4,10 +4,8 @@ import * as docs from '../docs';
 import { actions } from '../docs';
 import { resetState } from './resetState';
 import { cloneDeep } from 'lodash';
-import os from 'os';
 
 import fs from 'fs';
-jest.setTimeout(10000);
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
@@ -25,6 +23,8 @@ const createStore = () => {
 /** Clean up: Delete test project folder */
 afterAll(async (done) => {
   const path = actions.cwd().data.cwd;
+
+  console.log({ platform: process.platform });
 
   if (process.platform !== 'win32') {
     // Do not remove directory on windows os

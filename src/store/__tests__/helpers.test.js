@@ -22,12 +22,14 @@ const createStore = () => {
 
 /** Clean up: Delete test project folder */
 afterAll(async (done) => {
-  const path = actions
-    .cwd()
-    .data.cwd.replace(/\\test-project\\test-project$/, ''); // Replacing this pattern `\\test-project\\test-project` for handling current windows build issues
+  const path = actions.cwd().data.cwd;
 
-  if (fs.existsSync(path) && fs.statSync(path)) {
-    console.log({ path });
+  if (
+    process.env.NODE_ENV === 'dev' &&
+    fs.existsSync(path) &&
+    fs.statSync(path)
+  ) {
+    console.log(process.env.NODE_ENV);
     fs.rmdir(path, { recursive: true }, (err) => {
       if (err) console.error(err);
       console.log('Done');

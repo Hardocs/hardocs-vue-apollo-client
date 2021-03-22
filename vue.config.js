@@ -33,7 +33,7 @@ module.exports = {
           }
         ],
         linux: {
-          target: ['zip', 'deb', 'snap'],
+          target: ['zip', 'deb'],
           category: 'System'
           // icon: 'src/assets/icons/icon.png'
         },

@@ -6,6 +6,7 @@ import { resetState } from './resetState';
 import { cloneDeep } from 'lodash';
 
 import fs from 'fs';
+jest.setTimeout(30000);
 
 const localVue = createLocalVue();
 localVue.use(Vuex);

@@ -32,3 +32,4 @@ pnpm-debug.log*
 delete-this
 
 bin/
+test-project/

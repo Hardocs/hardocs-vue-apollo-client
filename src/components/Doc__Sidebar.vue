@@ -4,6 +4,7 @@
     width="300"
     :expand-on-hover="$vuetify.breakpoint.smAndDown"
     app
+    class="docs__sidebar"
   >
     <v-list dense nav>
       <v-list-item
@@ -138,5 +139,11 @@ export default {
 .table-of-contents {
   position: fixed;
   height: 100vh;
+}
+.docs__sidebar {
+  z-index: 9999 !important;
+}
+.ck-editor__top {
+  z-index: 99 !important;
 }
 </style>

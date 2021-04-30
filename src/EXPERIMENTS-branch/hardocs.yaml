@@ -1,0 +1,33 @@
+# PHYSICAL STORAGE OF THE PROJECT
+hardocs-fs-structure:
+  .hardocs: # Stores configuration of the project and structure
+  baseDir:
+  
+  standards:
+  - type: schema
+  -   
+  
+  docsList: # Stores unstructured documents html now later, also markdown, or wikis, etc, etc....
+    - type: record
+      schema:
+        # id: 
+        name:     # For now this is going to be provided by the user
+        url:      # provider by the user
+        version:  # provided by the user
+        doi:      # ??? # provided manually
+    
+    - type: doc
+      doc:
+        # id
+        $title:
+        $fileName:
+        $path:
+    
+    - type: record
+       ...
+    - type: doc
+       ...
+    - doc5:
+      type: doc
+       ...
+    - type: schema

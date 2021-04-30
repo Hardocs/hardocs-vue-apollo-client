@@ -1,27 +1,16 @@
 import router from '@/router';
 import { DocsServices } from '../../services';
 import habitatLocal from '../../services/habitatLocal';
-import { formatDocs, makeDoc } from './helpers';
+import { 
+  formatDocs, 
+  makeDoc, 
+  // Hardoc, 
+  Schema, 
+  // Record, 
+  // Doc 
+} from './helpers';
 import { types } from './types';
 
-export const state = {
-  appPath: '',
-  cwd: '',
-  docsFolder: '',
-  entryFile: 'index.html',
-  // FIXME: Set to docsList
-  allDocs: [],
-  currentDoc: { saved: false },
-  // Register is the project is being created
-  initProject: {
-    type: undefined,
-    on: false,
-    path: ''
-  },
-  validTitle: true,
-  metadata: {},
-  schema: {}
-};
 export const actions = {
   openFolder({ commit }) {
     const cwd = habitatLocal
@@ -113,50 +102,54 @@ export const actions = {
   },
 
   async setCurrentDoc({ commit, state }, docId) {
-    if (state.allDocs.length < 1) {
-      await commit(types.SET_CURRENT_DOC, {
-        saved: false
-      });
-      return;
-    }
-    if (docId) {
-      const allDocs = state.allDocs;
-      const doc = allDocs.find((doc) => doc.id == docId);
-      if (doc) {
-        commit(types.SET_CURRENT_DOC, doc);
-      }
-    } else if (!docId) {
-      if (state.allDocs.length <= 0) {
+    if (state.allDocs === 0) return null
+    else {
+      if (state.allDocs.length < 1) {
         await commit(types.SET_CURRENT_DOC, {
           saved: false
         });
-      } else {
-        const doc = state.allDocs[0];
-        commit(types.SET_CURRENT_DOC, doc);
+        return;
       }
-    }
+      if (docId) {
+        const allDocs = state.allDocs;
+        const doc = allDocs.find((doc) => doc.id == docId);
+        if (doc) {
+          commit(types.SET_CURRENT_DOC, doc);
+        }
+      } else if (!docId) {
+        if (state.allDocs.length <= 0) {
+          await commit(types.SET_CURRENT_DOC, {
+            saved: false
+          });
+        } else {
+          const doc = state.allDocs[0];
+          commit(types.SET_CURRENT_DOC, doc);
+        }
+      }
 
-    if (state.currentDoc.id) {
-      router
-        .push({
-          path: '/doc/' + state.currentDoc.id
-        })
-        .catch((err) => {
-          // Ignore the vuex err regarding  navigating to the page they are already on.
-          if (
-            err.name !== 'NavigationDuplicated' &&
-            !err.message.includes(
-              'Avoided redundant navigation to current location'
-            )
-          ) {
-            // But print any other errors to the console
-            console.error(err);
-          }
-        });
+      if (state.currentDoc.id) {
+        router
+          .push({
+            path: '/doc/' + state.currentDoc.id
+          })
+          .catch((err) => {
+            // Ignore the vuex err regarding  navigating to the page they are already on.
+            if (
+              err.name !== 'NavigationDuplicated' &&
+              !err.message.includes(
+                'Avoided redundant navigation to current location'
+              )
+            ) {
+              // But print any other errors to the console
+              console.error(err);
+            }
+          });
+      }
     }
   },
 
   async addDoc({ state, commit, dispatch }) {
+    // Here we should create the document from the superClass
     const doc = makeDoc(state);
     await commit(types.ADD_DOC, doc);
     await dispatch('setCurrentDoc', doc.id);
@@ -255,8 +248,16 @@ export const actions = {
     });
   },
 
-  async schemaFromURL({ commit }, { url, name }) {
-    const schema = await DocsServices.downloadSchemaFromURL(url, name);
-    await commit(types.SET_SCHEMA, schema.data.schemaFromURL);
+  async schemaFromURL(
+    { commit, state },
+    { url, name }) {
+    const schema = new Schema(name, url, state.docsFolder)
+    console.log("New schema to be added " + JSON.stringify(schema))
+    commit(types.ADD_DOC,schema) 
+    // const schema = await DocsServices.downloadSchemaFromURL(url, name);
+    await DocsServices.downloadSchemaFromURL(url, name);
+    // await commit(types.SET_SCHEMA, schema.data.schemaFromURL);
   }
 };
+
+

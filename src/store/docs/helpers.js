@@ -1,7 +1,51 @@
 /**
  * HELPER FUNCTIONS FOR DOCS STATE STORE
  *
- *
+ */
+
+
+export class Hardoc {
+  // type can onlt be 
+  constructor(type, path) {
+    if (type !== "Doc")
+      this.type = type;
+    this.path = path; // includes the fileName
+  }
+  // set Path
+  // Change Path
+}
+
+export class Doc extends Hardoc {
+  constructor(type, path, title) {
+    super(type, path)
+    this.title = title;
+  }
+}
+
+export class Record extends Hardoc {
+  constructor(type, name, url ) {
+    super(type)
+    // Schema id???
+    this.schemaLabel = schema.label;
+    this.schemaUri = schema.uri;
+    this.content = null
+
+  }
+  // set content
+
+}
+
+export class Schema extends Hardoc {
+  constructor(type, label, url) {
+    super(type)
+    this.label = label;
+    this.url = url;
+    this.fileName = `${label}.json`
+  }
+}
+
+/**
+ * 
  * Before committing the data object to the vuex it needs to be formatted
  * The formatting includes adding an id, processing the title and
  * adding properties such as saved.
@@ -30,10 +74,6 @@ export function formatDocs(response, action) {
       regex = /(<([^>]+)>)/gi;
       doc.title = doc.title.replace(regex, '').trim();
       doc.saved = true;
-      if (doc.id == 1) {
-        // Make a more unique identifier for the first document to avoid conflict with guides
-        doc.id = parseInt('' + doc.id + Math.floor(Math.random() * 1000 + 1));
-      }
       doc.isWritten = true;
       // doc.isStructured = false;
     });
@@ -53,6 +93,7 @@ export function formatDocs(response, action) {
 }
 
 /**
+ * Create a doc and check if the name is available
  * This function checks before a new doc object before being committed
  * If it exists, then it appends the copy string and also creates the files
  * accordingly with the same names.
@@ -84,3 +125,4 @@ export function makeDoc(state, ext = 'html') {
 
   return doc;
 }
+

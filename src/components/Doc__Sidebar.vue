@@ -150,6 +150,7 @@ export default {
         url: this.schemaUrl,
         name: this.schemaName
       });
+      this.open = false;
     },
 
     removeDoc(id) {

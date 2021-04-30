@@ -1,4 +1,5 @@
-import { actions, state } from './actions';
+import { state } from './store';
+import { actions } from './actions';
 import { getters } from './getters';
 import { mutations } from './mutations';
 import { types } from './types';

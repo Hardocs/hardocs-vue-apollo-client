@@ -1,0 +1,64 @@
+# DATA MODELS
+
+# This is the data structure of metadata records
+# When the user selects a schema, the schema will be stored centrally(globally in hardocs) 
+# and locally in the project
+# A hardocs project can have a reference to different metadata schemas
+$schemas:  # Collection of schemas stored globally
+  - schema1:
+  - schema2:
+  ...
+
+schema:
+  # id: 
+  name:     # For now this is going to be provided by the user
+  url:      # provider by the user
+  version:  # provided by the user
+  doi:      # ??? # provided manually
+
+  $path:     # Automatically generated
+  $fileName: # Generated automatically
+
+record:
+  $schema:    # Generated automatically
+  $path:      # Generated automatically
+  $fileName:  # Will be generated automatically
+
+doc:
+  # id
+  $title:
+  $fileName:
+  $path:
+    
+
+# STATE MANAGEMENT 
+store:
+  docs:
+    doc1:
+      type: record
+      schema:
+        # id: 
+        name:     # For now this is going to be provided by the user
+        url:      # provider by the user
+        version:  # provided by the user
+        doi:      # ??? # provided manually
+    
+    doc2:
+      type: doc
+      doc:
+        # id
+        $title:
+        $fileName:
+        $path:
+    
+    doc3:
+      type: record
+       ...
+    doc4:
+      type: doc
+       ...
+    doc5:
+      type: doc
+       ...
+
+

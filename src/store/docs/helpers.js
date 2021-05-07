@@ -2,36 +2,34 @@
  * HELPER FUNCTIONS FOR DOCS STATE STORE
  *
  */
-
-
 export class Hardoc {
-  // type can onlt be 
-  constructor(type, path) {
-    if (type !== "Doc")
-      this.type = type;
-    this.path = path; // includes the fileName
+  constructor({id, type, path, filename}) {
+    this.id = id;
+    this.type = type;
+    this.filename = filename;
+    this.path = path + filename; 
+    this.content = null;
   }
-  // set Path
-  // Change Path
+  setId = id => this.id = id
+  setContent = content => this.content = contents
+
 }
 
 export class Doc extends Hardoc {
-  constructor(type, path, title) {
-    super(type, path)
+  constructor({id, type, path, filename, title}) {
+    super({id, type, path, filename})
     this.title = title;
+    setTitle = title => this.title = title;
   }
 }
 
 export class Record extends Hardoc {
   constructor(type, name, url ) {
     super(type)
-    // Schema id???
     this.schemaLabel = schema.label;
     this.schemaUri = schema.uri;
     this.content = null
-
   }
-  // set content
 
 }
 
@@ -42,7 +40,30 @@ export class Schema extends Hardoc {
     this.url = url;
     this.fileName = `${label}.json`
   }
+  
 }
+
+/**
+ * 
+ * @param {*} response 
+ * @param {*} action 
+ * @returns 
+ */
+
+export function storeDoc(doc){
+  switch(doc.type) {
+    case "Doc" :
+      newDoc = new Doc({id,filename,path,title})
+    case "Record":
+      // code block
+      break;
+    case "Schema:
+      // code block
+      break;
+  }
+}
+
+
 
 /**
  * 

@@ -8,6 +8,7 @@
     "email": "divinehycenth8@gmail.com"
   },
   "scripts": {
+    "destroy":"node src/store/docs/iteration.design.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit --runInBand",

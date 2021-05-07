@@ -76,30 +76,52 @@ export const actions = {
     dispatch('loadProject');
   },
 
-  async loadProject({ commit, state, dispatch }) {
-    if (state.cwd) {
-      let invalidProject = false;
-      const response = await DocsServices.getProject(state.cwd).catch((e) => {
-        console.error(e);
-        invalidProject = true;
-      });
-      if (!invalidProject) {
-        const formattedDocs = formatDocs(response, 'openProject');
+  /**
+   * 
+   * @param {*} response this the manifest
+   */
+  async loadProject(response){
+    // We always get a good response...
+    try { 
+      const res = response
+    } 
+    catch { return "err" }
+    // We mutate the state based on manifest
+    commit(types.SET_CWD, state.cwd);
 
-        commit(types.SET_CWD, state.cwd);
-        await commit(types.LOAD_PROJECT, response.data.openProject);
-        await commit(types.LOAD_DOCS, formattedDocs);
-        // dispatch('loadsDataset');
-        dispatch('setCurrentDoc');
-      } else {
-        console.error('Invalid hardocs project');
-        commit(types.SET_CWD, undefined);
-        return window.alert(
-          'Cannot open invalid hardocs project. Select a hardocs project or create a new one'
-        );
-      }
-    }
+    // Mutate the docs
+    // For each doc array
+      // identify type
+      // instantiate object type
+      // set the object values
+      // push to the store
   },
+
+
+  // async loadProject({ commit, state, dispatch }) {
+  //   if (state.cwd) {
+  //     let invalidProject = false;
+  //     const response = await DocsServices.getProject(state.cwd).catch((e) => {
+  //       console.error(e);
+  //       invalidProject = true;
+  //     });
+  //     if (!invalidProject) {
+  //       const formattedDocs = formatDocs(response, 'openProject');
+
+  //       commit(types.SET_CWD, state.cwd);
+  //       await commit(types.LOAD_PROJECT, response.data.openProject);
+  //       await commit(types.LOAD_DOCS, formattedDocs);
+  //       // dispatch('loadsDataset');
+  //       dispatch('setCurrentDoc');
+  //     } else {
+  //       console.error('Invalid hardocs project');
+  //       commit(types.SET_CWD, undefined);
+  //       return window.alert(
+  //         'Cannot open invalid hardocs project. Select a hardocs project or create a new one'
+  //       );
+  //     }
+  //   }
+  // },
 
   async setCurrentDoc({ commit, state }, docId) {
     if (state.allDocs === 0) return null
